@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=15
+#SBATCH -o demo2out
+#SBATCH -p MEM_128
+#SBATCH -J 11
+ulimit -s unlimited
+source ~/.bashrc
+conda activate test2
+module load staskfarm/1.0
+date "+Began at: %d %H:%M:%S"
+a="./demo1.py"
+b="./demo2.py"
+c="./demo3.py"
+d="./demo4.py"
+e="./demo5.py"
+f="./demo6.py"
+g="./demo7.py"
+h="./demo8.py"
+i="./demo9.py"
+j="./demo10.py"
+k="./demo11.py"
+l="./demo12.py"
+m="./demo13.py"
+n="./demo14.py"
+o="./demo15.py"
+z=`echo -e "${a}\n${b}\n${c}\n${d}\n${e}\n${f}\n${g}\n${h}\n${i}\n${j}\n${k}\n${l}\n${m}\n${n}\n${o}"`
+cat > script.conf2 <<EOF
+${z}
+EOF
+staskfarm -v script.conf2
+date "+Finished at: %d %H:%M:%S"
+

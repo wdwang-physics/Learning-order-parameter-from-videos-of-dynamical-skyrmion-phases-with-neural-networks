@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o demo3out
+#SBATCH -p MEM_128
+#SBATCH -J cnnlstm3
+ulimit -s unlimited
+source ~/.bashrc
+conda activate test1
+date "+Began at: %d %H:%M:%S"
+python demo3.py 
+python predclstm3.py
+date "+Finished at: %d %H:%M:%S"
+

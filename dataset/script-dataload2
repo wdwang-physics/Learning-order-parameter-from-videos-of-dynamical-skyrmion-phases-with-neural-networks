@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o dataload2out
+#SBATCH -p MEM_128
+#SBATCH -J wd2
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"	
+python dataload7.py 
+date "+Finished at: %d %H:%M:%S"

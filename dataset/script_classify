@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -N 4
+#SBATCH --ntasks-per-node=24
+#SBATCH -o classifyout
+#SBATCH -p work
+#SBATCH -J wd2
+ulimit -s unlimited
+date "+Began at: %d %H:%M:%S"
+NUM=$[4*24];
+echo "0-$[$NUM-1] ./classify.py %t $NUM batch4" > script.conf
+yhrun -n $NUM --multi-prog script.conf
+rm script.conf

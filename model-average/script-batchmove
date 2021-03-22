@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -o batchmove-out
+#SBATCH -p work
+#SBATCH -J batchmove
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"
+python batch-move.py 
+date "+Finished at: %d %H:%M:%S"

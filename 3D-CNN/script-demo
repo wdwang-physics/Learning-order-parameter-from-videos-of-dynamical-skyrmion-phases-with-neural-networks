@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=10
+#SBATCH -o demoout
+#SBATCH -p MEM_128
+#SBATCH -J 11
+ulimit -s unlimited
+source ~/.bashrc
+conda activate test2
+date "+Began at: %d %H:%M:%S"
+a="1 ./para_vis1.py %t"
+b="2 ./para_vis2.py %t"
+c="3 ./para_vis3.py %t"
+d="4 ./para_vis4.py %t"
+e="5 ./para_vis5.py %t"
+f="6 ./para_vis6.py %t"
+g="7 ./para_vis7.py %t"
+h="8 ./para_vis8.py %t"
+i="9 ./para_vis9.py %t"
+j="0 ./para_vis10.py %t"
+z=`echo -e "${a}\n${b}\n${c}\n${d}\n${e}\n${f}\n${g}\n${h}\n${i}\n${j}"`
+cat > script.conf <<EOF
+${z}
+EOF
+yhrun -n 10 -W 1800 --multi-prog script.conf
+date "+Finished at: %d %H:%M:%S"
+

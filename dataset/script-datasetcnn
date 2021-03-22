@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o datasetout
+#SBATCH -p work
+#SBATCH -J wd
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"	
+python datasetcnn.py batch16
+python datasetcnn.py batch17
+python datasetcnn.py batch18
+python datasetcnn.py batch19
+python datasetcnn.py batch20
+date "+Finished at: %d %H:%M:%S"

@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -o graph-out
+#SBATCH -p work
+#SBATCH -J graph
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"
+python graph_new.py batch16
+python graph_new.py batch17
+python graph_new.py batch18
+python graph_new.py batch19
+python graph_new.py batch20
+python graph_new.py batch21
+python graph_new.py batch22
+python graph_new.py batch23
+python graph_new.py batch24
+python graph_new.py batch25
+python graph_new.py batch26
+python graph_new.py batch27
+python graph_new.py batch28
+python graph_new.py batch29
+python graph_new.py batch30
+python graph_new.py batch31
+python graph_new.py batch32
+python graph_new.py batch33
+python graph_new.py batch34
+python graph_new.py batch35
+date "+Finished at: %d %H:%M:%S"

@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o moveout
+#SBATCH -p work
+#SBATCH -J move
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"
+python move.py batch16
+python move.py batch17
+python move.py batch18
+python move.py batch19
+python move.py batch20
+python move.py batch21
+python move.py batch22
+python move.py batch23
+python move.py batch24
+python move.py batch25
+python move.py batch26
+python move.py batch27
+python move.py batch28
+python move.py batch29
+python move.py batch30
+python move.py batch31
+python move.py batch32
+python move.py batch33
+python move.py batch34
+python move.py batch35
+date "+Finished at: %d %H:%M:%S"
+

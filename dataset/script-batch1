@@ -1,0 +1,59 @@
+#!/bin/bash
+#SBATCH -N 35
+#SBATCH --ntasks-per-node=24
+#SBATCH -o batch1out
+#SBATCH -p work
+#SBATCH -J wd1
+ulimit -s unlimited
+date "+Began at: %d %H:%M:%S"
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+NUM=$[30*28];
+
+NAME=batch141;
+folder="./$NAME"
+if [ ! -d "$folder" ]; then
+  mkdir "$folder"
+fi
+echo "0-$[$NUM-1] ./code_data2.py %t $NUM $NAME 0.3 2.1 1" > script.conf1
+yhrun -n $NUM --multi-prog script.conf1 
+date "+Finished at: %d %H:%M:%S"
+
+NAME=batch142;
+folder="./$NAME"
+if [ ! -d "$folder" ]; then
+  mkdir "$folder"
+fi
+echo "0-$[$NUM-1] ./code_data2.py %t $NUM $NAME 0.3 2.2 1" > script.conf1
+yhrun -n $NUM --multi-prog script.conf1 
+date "+Finished at: %d %H:%M:%S"
+
+NAME=batch143;
+folder="./$NAME"
+if [ ! -d "$folder" ]; then
+  mkdir "$folder"
+fi
+echo "0-$[$NUM-1] ./code_data2.py %t $NUM $NAME 0.3 2.3 1" > script.conf1
+yhrun -n $NUM --multi-prog script.conf1 
+date "+Finished at: %d %H:%M:%S"
+
+NAME=batch144;
+folder="./$NAME"
+if [ ! -d "$folder" ]; then
+  mkdir "$folder"
+fi
+echo "0-$[$NUM-1] ./code_data2.py %t $NUM $NAME 0.3 2.4 1" > script.conf1
+yhrun -n $NUM --multi-prog script.conf1 
+date "+Finished at: %d %H:%M:%S"
+
+NAME=batch145;
+folder="./$NAME"
+if [ ! -d "$folder" ]; then
+  mkdir "$folder"
+fi
+echo "0-$[$NUM-1] ./code_data2.py %t $NUM $NAME 0.3 2.5 1" > script.conf1
+yhrun -n $NUM --multi-prog script.conf1 
+date "+Finished at: %d %H:%M:%S"
+
+

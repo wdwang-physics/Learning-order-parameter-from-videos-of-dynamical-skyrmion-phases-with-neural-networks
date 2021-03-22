@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o feaout
+#SBATCH -p MEM_128
+#SBATCH -J feature0
+ulimit -s unlimited
+source ~/.bashrc
+conda activate test2
+date "+Began at: %d %H:%M:%S"
+python feature_vis0.py a
+python feature_vis0.py c
+date "+Finished at: %d %H:%M:%S"
+

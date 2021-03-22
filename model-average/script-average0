@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -o average0-out
+#SBATCH -p work
+#SBATCH -J average0
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"
+python average0.py 
+python graph-aver.py
+date "+Finished at: %d %H:%M:%S"

@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -o label-out
+#SBATCH -p MEM_128
+#SBATCH -J label
+ulimit -s unlimited
+module load anaconda/5.3.1
+source ~/.bashrc
+conda activate welldy
+date "+Began at: %d %H:%M:%S"
+python relabel.py batch5
+date "+Finished at: %d %H:%M:%S"

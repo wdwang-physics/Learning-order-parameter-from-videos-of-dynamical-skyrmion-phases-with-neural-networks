@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH -o demo2out
+#SBATCH -p MEM_128
+#SBATCH -J cnndemo2
+ulimit -s unlimited
+source ~/.bashrc
+conda activate test2
+date "+Began at: %d %H:%M:%S"
+python demo2.py 
+python predcnn2.py
+date "+Finished at: %d %H:%M:%S"
+
