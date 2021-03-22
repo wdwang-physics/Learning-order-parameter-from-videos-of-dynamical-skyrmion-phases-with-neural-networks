@@ -1,0 +1,1 @@
+# Learning-order-parameter-from-videos-of-dynamical-skyrmion-phases-with-neural-networks
